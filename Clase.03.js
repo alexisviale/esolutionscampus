@@ -76,9 +76,40 @@ function argumType(param1) {
     return (typeof param1)
 }
 
-function primitive() {
-    let result = argumType(10)
+function primitive(fun) {
+    let result = fun(10)
     console.log(result);
 }
 
-primitive()
+primitive(argumType)
+
+//Paradigma orientado a objetos
+
+// Definición literal de objeto
+const car = {
+    type: 'Fiat',
+    model: '600',
+    color: 'blanco',
+    'driver name': 'Alexis',
+    fullName: function() {
+        return this.type + ' ' + this.model
+    }
+}
+
+console.log(car.fullName());
+
+car.id = 'AC8998DF'
+
+function makePerson(firstName, lasName, age) {
+    return {
+        firstName: firstName,
+        lastName: lasName,
+        age: age
+    }
+}
+
+const homero = makePerson('Homero', 'Simpson', '36')
+const bart = makePerson('Bart', 'Simpson', '10')
+
+console.log(homero, bart);
+
