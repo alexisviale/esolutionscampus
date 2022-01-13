@@ -82,3 +82,38 @@ Person.prototype.otherMethod = function() {
 
 console.log(bart.otherProperty);
 console.log(homero.otherMethod());
+
+//Iteradores
+
+for(let x of [1,2,3,4,5]) {
+    console.log(x);
+}
+
+function listOfNumbers() {
+    let n = 0
+    return {
+        next: function() {
+            n+= 10;
+            return {value: n, done : false}
+        }
+    }
+}
+
+
+let set = new Set(['a', 'b', 'c'])
+
+set.forEach((value) => {
+    console.log(`El valor del elemento es ${value}`);
+})
+
+const it = set.values()
+
+let map = new Map([
+    ['Homero', 55],
+    ['Bart', 10],
+    ['Lisa', 8]
+])
+
+map.forEach(function(value, key) {
+    console.log(`La claver es ${key} y el valor es ${value}`);
+})
