@@ -42,13 +42,13 @@ const o = {
     counter: 0
 }
 
-Object.defineProperty(0, 'reset', {
+Object.defineProperty(o, 'reset', {
     get: function() {
         this.counter = 0
     }
 })
 
-Object.defineProperty(0, 'reset', {
+Object.defineProperty(o, 'reset', {
     get: function() {
         this.counter++
     }
@@ -117,3 +117,43 @@ let map = new Map([
 map.forEach(function(value, key) {
     console.log(`La claver es ${key} y el valor es ${value}`);
 })
+
+//Ejercicio
+
+const obj1 =  {
+    prop1: 'prop1',
+    prop2: 'prop2',
+    prop3: {
+        sub1: 'sub1',
+        sub2: 'sub2',
+    }
+}
+
+const obj2 =  {
+    prop1: 'prop1',
+    prop2: 'prop2',
+    prop3: {
+        sub1: 'sub1',
+        sub2: 'sub2',
+    }
+}
+
+const myArray = {
+   pet1: 'perro',
+   pet2: 'gato',
+   
+   agregar: function(prop, elem) {
+       
+           this[prop] = elem
+       
+   },
+   eliminar: function(elem) {
+       delete this.elem
+   }
+}
+
+myArray.agregar('sun','antonio')
+
+console.log(myArray);
+
+
