@@ -138,22 +138,26 @@ const obj2 =  {
     }
 }
 
+//Ejercicio 1
+
 const myArray = {
    pet1: 'perro',
    pet2: 'gato',
    
    agregar: function(prop, elem) {
        
-           this[prop] = elem
+        this[prop] = elem
        
    },
-   eliminar: function(elem) {
-       delete this.elem
+   eliminar: function() {
+       let lastKey = Object.keys(myArray)
+       let delKey = lastKey.length
+       delete this[lastKey[delKey - 1]]
    }
 }
 
 myArray.agregar('sun','antonio')
-
+myArray.eliminar()
 console.log(myArray);
 
 
