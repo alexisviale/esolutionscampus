@@ -118,25 +118,7 @@ map.forEach(function(value, key) {
     console.log(`La claver es ${key} y el valor es ${value}`);
 })
 
-//Ejercicio
-
-const obj1 =  {
-    prop1: 'prop1',
-    prop2: 'prop2',
-    prop3: {
-        sub1: 'sub1',
-        sub2: 'sub2',
-    }
-}
-
-const obj2 =  {
-    prop1: 'prop1',
-    prop2: 'prop2',
-    prop3: {
-        sub1: 'sub1',
-        sub2: 'sub2',
-    }
-}
+//Ejercicios
 
 //Ejercicio 1
 
@@ -157,7 +139,44 @@ const myArray = {
 }
 
 myArray.agregar('sun','antonio')
+myArray.agregar('wife','julieta')
+myArray.agregar('husband','alexis')
+
 myArray.eliminar()
 console.log(myArray);
 
+//Ejercicio 2
 
+const obj1 =  {
+    prop1: 'prop1',
+    prop2: 'prop2',
+    prop3: {
+        sub1: 'sub1',
+        sub2: 'sub2',
+    }
+}
+
+const obj2 =  {
+    prop1: 'prop1',
+    prop2: 'prop2',
+    prop3: {
+        sub1: 'sub1',
+        sub2: 'sub2',
+    }
+}
+
+const objectsCompartor = (obj1, obj2) => {
+
+    let keys1 = Object.keys(obj1)
+    let keys2 = Object.keys(obj2)
+
+    if(keys1.length !== keys2.length) {
+        return false
+    }
+
+    if(JSON.stringify(keys1) !== JSON.stringify(keys2)) {
+        return false
+    }
+
+
+}
