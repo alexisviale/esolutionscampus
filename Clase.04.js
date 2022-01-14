@@ -165,7 +165,9 @@ const obj2 =  {
     }
 }
 
-const objectsCompartor = (obj1, obj2) => {
+console.log(Object.keys(obj1));
+
+const objectsComparator = (obj1, obj2) => {
 
     let keys1 = Object.keys(obj1)
     let keys2 = Object.keys(obj2)
@@ -173,10 +175,20 @@ const objectsCompartor = (obj1, obj2) => {
     if(keys1.length !== keys2.length) {
         return false
     }
-
-    if(JSON.stringify(keys1) !== JSON.stringify(keys2)) {
-        return false
+    
+    for (const key of keys1) {
+        const val1 = obj1[key];
+        const val2 = obj2[key];
+        
+        if(
+            !objectsComparator(val1, val2) || val1 !== val2
+        ) {
+            return false;
+        }
     }
 
+    return true
 
 }
+
+console.log(objectsComparator(obj1, obj2))
