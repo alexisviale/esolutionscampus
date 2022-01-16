@@ -11,19 +11,32 @@ class Question {
         return number
     }
 
+    static getPoints(questionsArr, userAnswer, number) {
+        let points = 0
+        if(questionsArr[number].rightAnswer === userAnswer){
+            points++
+            console.log(`Tus puntos son ${points}`);
+        } else {
+            console.log('Respuesta incorrecta');
+        }
+        
+    }
+
     static showQuestion(questionsArr) {
         let nquestion = []
         let counter = 0
-        while (counter <= questionsArr.length) {
+        while (counter < questionsArr.length) {
             let number = this.#getQuestion(questionsArr)
             if(nquestion.includes(number)) {
                 number = this.#getQuestion(questionsArr)
 
             } else {
                 console.log(questionsArr[number].question);
-                console.log(questionsArr[number].wrongAnswers);
-                //let answers = questionsArr[number].wrongAnswers.push(questionsArr[number].rightAnswer)
-                //console.log(`Las opciones son ${answers}.`);
+                let answers = questionsArr[number].wrongAnswers
+                answers.push(questionsArr[number].rightAnswer)
+                console.log(`Las opciones son ${answers}`);
+                let userAnswer = prompt('Ingresa tu respuesta: ')
+                this.getPoints(questionsArr, userAnswer, number)
                 nquestion.push(number)
                 counter++
             }
