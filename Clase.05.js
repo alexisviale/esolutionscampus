@@ -157,6 +157,9 @@ class Rabbit extends Animal {
         super.stop()
         this.#hide()
     }
+    static compare(rabbit1, rabbit2) {
+        return rabbit1.earLength - rabbit2.earLength;
+    }
 }
 
 let rabbit = new Rabbit('Bunny', 15)
@@ -205,3 +208,12 @@ articles.sort(Article.compare)
 
 console.log(articles);
 console.log(Article.publisher);
+
+const rabbits = [
+    new Rabbit('Conejo blanco', 15),
+    new Rabbit('Conejo negro', 10)
+]
+
+rabbits.sort(Rabbit.compare)
+
+console.log(rabbits);
