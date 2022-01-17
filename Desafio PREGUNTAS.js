@@ -3,7 +3,6 @@ class Question {
       this.question = question;
       this.wrongAnswers = wrongAnswers;
       this.rightAnswer = rightAnswer;
-      this.points = 0;
     }
 
     static #getQuestion(questionsArr) {
@@ -12,19 +11,22 @@ class Question {
       return number;
     }
 
-    static getPoints(questionsArr, userAnswer, number) {
-      if (questionsArr[number].rightAnswer === userAnswer) {
+    static getPoints(questionsArr, userAnswer, number, points) {
+      if (questionsArr[number].rightAnswer == userAnswer) {
+        points.push(1);
+
         window.alert("Respuesta correcta!");
-        console.log(`Tus puntos son ${this.points}`);
+        console.log(`Tus puntos son ${points.reduce((a, b) => a + b, 0)}`);
       } else {
         window.alert("Respuesta incorrecta");
-        console.log(`Tus puntos son ${this.points}`);
+        console.log(`Tus puntos son ${points.reduce((a, b) => a + b, 0)}`);
       }
     }
 
     static showQuestion(questionsArr) {
       let nquestion = [];
       let counter = 0;
+      let points = [];
       while (counter < questionsArr.length) {
         let number = this.#getQuestion(questionsArr);
         if (nquestion.includes(number)) {
@@ -39,7 +41,7 @@ class Question {
           );
           console.log(userAnswer);
 
-          this.getPoints(questionsArr, userAnswer, number);
+          this.getPoints(questionsArr, userAnswer, number, points);
           nquestion.push(number);
           counter++;
         }
@@ -49,22 +51,10 @@ class Question {
   }
 
   const questions = [
-    new Question(
-      "Cuantas patas tiene el perro?",
-      ["1", "2", "3", "5"],
-      "4"
-    ),
-    new Question("Cuantas patas tiene el gato?", ["1", "2", "3", "5"], "4"),
-    new Question(
-      "Cuantas patas tiene el pajaro?",
-      ["1", "4", "3", "5"],
-      "2"
-    ),
-    new Question(
-      "Cuan rapido corre el cheeta?",
-      ["120", "115", "80", "95"],
-      "110"
-    ),
+    new Question("Cuantas patas tiene el perro?", [1, 2, 3, 5], 4),
+    new Question("Cuantas patas tiene el gato?", [1, 2, 3, 5], 4),
+    new Question("Cuantas patas tiene el pajaro?", [1, 4, 3, 5], 2),
+    new Question("Cuan rapido corre el cheeta?", [120, 115, 80, 95], 110),
     new Question(
       "Que animal tiene trompa?",
       ["Perro", "Gato", "Ratón", "Pajaro"],
