@@ -125,3 +125,65 @@ console.log(err.message);
 console.log(err.stack);
 
 console.log(err instanceof SyntaxError);
+
+// Desestructuración
+
+let a, b, rest
+
+[a = 0,, b = 0, ...rest] = ['uno', 'dos', 'tres', 'cuatro']
+
+// Las comas agregadas además de la coma por defecto,
+// saltea elementos en el array.
+
+function sum(a, b, ...rest) {
+    return sum
+}
+
+console.log(a);
+console.log(b);
+console.log(rest);
+
+let a = 1;
+let b = 2;
+// para hacer un swap, necesitamos agregar ;
+[a, b] = [b, a]
+
+const [c, d, ...rest2] = func()
+
+console.log(c);
+console.log(d);
+console.log(rest2);
+
+function func() {
+    return new Set([1,2,3,4,5])
+}
+
+
+const user = {
+    name: 'Homero',
+    age: 55
+}
+
+const {name, age} = user
+
+console.log(name, age);
+
+//Objeto a partir de un array
+
+const arr = ['Homero', 'Simpson', 55]
+const user = {...arr}
+console.log(user);
+
+const user = {
+    name: 'Homero',
+    lastName: 'Simpson',
+    age: 55
+}
+
+const role = {
+    isAdmin: false
+}
+
+const clone = Object.assign({}, user, role)
+
+console.log(clone);
