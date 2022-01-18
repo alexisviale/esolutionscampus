@@ -7,18 +7,35 @@
     <title>Static Template</title>
     <script>
         function loadScript(src, callback) {
+            return new Promise(
+        function(resolve, reject) {
             setTimeout(() => {
                 let script = document.createElement('script')
                 script.src = src
-
-                script.onload = () => callback(null, script) //cuando se carga el script, llama al callback
-                script.onerror = () => callback(new Error(`Error en la carga ${src}`))
-
+        
+                script.onload = () => resolve(script) //cuando se carga el script, llama al callback
+                script.onerror = () => reject (new Error(`Error en la carga ${src}`))
+        
                 document.head.append(script)
             }, 1000)
         }
+    )
+    
+}
 
-        loadScript('script1.js', function(error, script) {
+let promise = loadScript('script1.js')
+
+promise
+.then(script => loadScript('script2.js')
+).then(script => loadScript('script3.js')
+).then(script => {
+    firstFunction()
+    secondFunction()
+    thirdFunction()
+}).catch(err => console.log(err))
+
+
+        /* loadScript('script1.js', function(error, script) {
             if(error) {
                 //Deberiamos manejar el error.
                 console.log(error)
@@ -44,7 +61,7 @@
             } else {
                 console.log('Acá cualquier cosa');
             }
-        }
+        }*/
     </script>
 
 </head>
