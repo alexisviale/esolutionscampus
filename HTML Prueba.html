@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Static Template</title>
+    <script>
+        function loadScript(src, callback) {
+            setTimeout(() => {
+                let script = document.createElement('script')
+                script.src = src
+
+                script.onload = () => callback(null, script) //cuando se carga el script, llama al callback
+                script.onerror = () => callback(new Error(`Error en la carga ${src}`))
+
+                document.head.append(script)
+            }, 1000)
+        }
+
+        loadScript('script1.js', function(error, script) {
+            if(error) {
+                //Deberiamos manejar el error.
+                console.log(error)
+            } else {
+                console.log(`${script.src} cargado.`);
+            }
+        })
+
+        loadScript('script1.js', firstStep)
+
+
+        function firstStep(error, script) {
+            if(error) {
+                //Se maneja el error
+            } else {
+                loadScript('script2.js', secondStep)
+            }
+        }
+
+        function secondStep(error, script) {
+            if(error) {
+                //Se maneja el error
+            } else {
+                console.log('Acá cualquier cosa');
+            }
+        }
+    </script>
+
+</head>
+  <body>
+    <h1>This is a static template, there is no bundler or bundling involved!</h1>
+  </body>
+</html>
