@@ -8,9 +8,8 @@ const loadJson = async () => {
         movie.innerHTML += `<h4>Episode ${json.results[i].episode_id}</h4>`
         movie.innerHTML += `<p>${json.results[i].opening_crawl}</p>`
         let castList = '<ul>'
-        let charName = ""
         json.results[i].characters.forEach(character => 
-                characterCall(character, castList))
+                castList += `<li>${characterCall(character, castList)}</li>`)
         castList += '</ul>'
         movie.innerHTML += `Cast: ${castList}`
         list.appendChild(movie)
@@ -24,5 +23,5 @@ const characterCall = async (url, castList) => {
     const response = await fetch(url)
     const data = await response.json()
     console.log(data.name);
-    return castList += `<li>${data.name}</li>`
+    return data.name
 }
