@@ -8,7 +8,7 @@ const Guide = () => {
         return (
             <div className='guide'>
                 <img alt='Homero Simpson' src={homer}/>
-                <p>Seleccione el producto para obtener más info</p>
+                <p>Click en + INFO para más información</p>
             </div>
         )
 

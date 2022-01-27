@@ -22,3 +22,15 @@ li {
   padding: 0;
 }
 
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+  width: 100%;
+}
+
+.wrapper h1 {
+  text-align: center;
+  width: 100%;
+}

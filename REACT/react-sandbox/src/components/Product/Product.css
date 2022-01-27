@@ -1,0 +1,15 @@
+.product-wrapper {
+    border: 1px black solid;
+    margin: 10px;
+    padding: 10px;
+    width: 200px;
+}
+
+.product-wrapper button {
+    font-size: 2em;
+    border: 1px black solid;
+    padding: 10px;
+    background: rgb(198, 255, 198);
+    margin: 10px;
+    width: 100px;
+}

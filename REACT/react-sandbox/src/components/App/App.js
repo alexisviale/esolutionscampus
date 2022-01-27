@@ -1,42 +1,18 @@
 import './App.css';
 import Guide from '../Guide/Guide';
+import ButtonInfo from '../ButtonInfo/ButtonInfo'
+import data from './data'
+import Product from '../Product/Product'
 
-const displayProduct = event => alert(event.target.title)
-
-const products = [
-  {
-    emoji: "🍓",
-    name: "frutilla",
-    price: 250
-  },
-  {
-    emoji: "🥑",
-    name: "palta",
-    price: 80
-  },
-  {
-    emoji: "🥕",
-    name: "zanahoria",
-    price: 100
-  },
-  {
-    emoji: "🍒",
-    name: "cereza",
-    price: 250
-  },
-  {
-    emoji: "🧅",
-    name: "cebolla",
-    price: 150
-  },
-  {
-    emoji: "🍅",
-    name: "tomate",
-    price: 300
-  }
-]
+export function showInfo(info) {
+  const alertInfo = Object.entries(info)
+    .map(info => `${info[0]}: ${info[1]}`)
+    .join('\n')
+  alert(alertInfo)
+}
 
 function App() {
+
   const shopName = 'La Verdulería de Homero'
   const display = true;
   return (
@@ -44,19 +20,21 @@ function App() {
         <h1 id='shopName'>{shopName}</h1>
         {display && <p>Abierto al público</p>}
         <Guide />
-        <ul>
-          {
-            products.map(product => (
-              <li key={product.name}>
-                  <button onClick={displayProduct}>
-                    <span role='img' aria-label={product.name} id={product.name} title={product.name + '  ' + product.price}>
-                      {product.emoji}
-                    </span>
-                  </button>
-              </li>
-            ))
-          }
-        </ul>
+        <div className='wrapper'>
+          {data.map(product => (
+            <Product 
+              key={product.name}
+              name={product.name}
+              emoji={product.emoji}
+              stock={product.stock}
+              price={product.price}
+              variety={product.variety}
+              info={product.info}
+              showInfo={showInfo}
+              ButtonInfo={ButtonInfo}
+            />
+          ))}
+        </div>
       </div>   
   )
 }
