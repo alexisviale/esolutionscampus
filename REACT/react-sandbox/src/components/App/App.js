@@ -12,7 +12,7 @@ export function showInfo(info) {
 }
 
 function App() {
-
+  const buttonName = 'More'
   const shopName = 'La Verdulería de Homero'
   const display = true;
   return (
@@ -32,6 +32,7 @@ function App() {
               info={product.info}
               showInfo={showInfo}
               ButtonInfo={ButtonInfo}
+              buttonName={buttonName}
             />
           ))}
         </div>

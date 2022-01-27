@@ -10,7 +10,8 @@ const Product = ({
     stock,
     variety,
     showInfo,
-    ButtonInfo
+    ButtonInfo,
+    buttonName
 }) => {
     return (
         <div className="product-wrapper">
@@ -19,7 +20,7 @@ const Product = ({
             <h3>Precio: ${price}</h3>
             <div>{variety.join(', ')}</div>
             <button onClick={() => showInfo(info)}>+ INFO</button>
-            <ButtonInfo info={info} showInfo={showInfo}/>
+            <ButtonInfo info={info} showInfo={showInfo} buttonName={buttonName}/>
         </div>
     )
 }
