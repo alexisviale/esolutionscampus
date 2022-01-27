@@ -19,7 +19,7 @@ const Product = ({
             <h3>Precio: ${price}</h3>
             <div>{variety.join(', ')}</div>
             <button onClick={() => showInfo(info)}>+ INFO</button>
-            <ButtonInfo info={info}/>
+            <ButtonInfo info={info} showInfo={showInfo}/>
         </div>
     )
 }

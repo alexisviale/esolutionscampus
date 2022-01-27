@@ -1,7 +1,6 @@
 import React from 'react'
-import {showInfo} from '../App/App'
 
-const ButtonInfo = ({info}) => {
+const ButtonInfo = ({info, showInfo}) => {
     
     return (
         <button onClick={() => showInfo(info)}>Prueba</button>
