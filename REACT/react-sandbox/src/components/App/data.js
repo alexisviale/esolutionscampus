@@ -1,5 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
-export default [
+const data =  [
     {
         name: 'Frutilla',
         emoji: '🍓',
@@ -9,14 +9,16 @@ export default [
         info: {
             uses: 'tragos, postres, salsas, mermeladas...',
             wiki: 'https://es.wikipedia.org/wiki/Fragaria'
-        }
+        },
+        ranked: 5
     },
     {
         name: 'Palta',
         emoji: '🥑',
         stock: 50,
         price: 80,
-        variety: ['verde', 'negra']
+        variety: ['verde', 'negra'],
+        ranked: 2
     },
     {
         name: 'Zanahoria',
@@ -26,6 +28,10 @@ export default [
         variety: ['común', 'baby'],
         info: {
             wiki: 'https://es.wikipedia.org/wiki/Daucus_carota'
-        }  
+        },  
+        ranked: 3
+
     }
 ]
+
+export default data

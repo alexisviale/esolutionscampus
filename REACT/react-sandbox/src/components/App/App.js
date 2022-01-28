@@ -33,6 +33,7 @@ function App() {
               showInfo={showInfo}
               ButtonInfo={ButtonInfo}
               buttonName={buttonName}
+              ranked={product.ranked}
             />
           ))}
         </div>

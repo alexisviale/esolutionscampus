@@ -1,5 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types'
+import ProductDetails from "../ProductDetails/ProductDetails";
+import Card from '../Card/Card'
 import './Product.css'
 
 const Product = ({
@@ -8,20 +10,19 @@ const Product = ({
     price,
     info,
     stock,
-    variety,
     showInfo,
-    ButtonInfo,
-    buttonName
+    ...props
 }) => {
     return (
-        <div className="product-wrapper">
+        <Card title='Producto' details={<em>Producto nuevo</em>}>
             <h2>{emoji} - {name}</h2>
             <h3>Stock del producto: {stock}</h3>
             <h3>Precio: ${price}</h3>
-            <div>{variety.join(', ')}</div>
-            <button onClick={() => showInfo(info)}>+ INFO</button>
-            <ButtonInfo info={info} showInfo={showInfo} buttonName={buttonName}/>
-        </div>
+            <ProductDetails {...props}/>
+            <div className="product-wrapper">
+                <button onClick={() => showInfo(info)}>+ INFO</button>
+            </div>
+        </Card>
     )
 }
 
@@ -30,7 +31,6 @@ Product.propTypes = {
     emoji: PropTypes.string.isRequired,
     stock: PropTypes.number.isRequired,
     price: PropTypes.number.isRequired,
-    variety: PropTypes.arrayOf(PropTypes.string).isRequired,
     info: PropTypes.shape({
             uses: PropTypes.string,
             wiki: PropTypes.string
