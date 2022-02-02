@@ -1,9 +1,0 @@
-.guide {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .guide img {
-    height: 100px;
-  }
