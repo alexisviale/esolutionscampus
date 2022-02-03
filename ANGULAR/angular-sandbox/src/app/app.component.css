@@ -1,0 +1,24 @@
+article {
+    background-color: pink;
+    padding: 2rem 4rem;
+    color: rgb(255, 255, 255);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 20px 20px 0px rgb(139, 83, 132);
+    border: 6px solid rgb(119, 0, 109);
+}
+
+header {
+    text-decoration: underline;
+}
+
+ul {
+    list-style: square;
+}
+
+.pink-box-shadow {
+    box-shadow: 20px 20px 0px rgb(139, 83, 132);
+}
+
+.black-box-shadow {
+    box-shadow: 20px 20px 0px black;
+}
